@@ -14,3 +14,16 @@
 
 神经网络和深度学习最近在许多领域都取得了非常不错的成绩，例如在图像识别、语音识别，以及自然语言处理等。这本书将会教给你许多神经网络和深度学习之中的核心概念。
 点击[这里](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/About.md)获取有关本书的更多细节。你也可以直接从[第一章](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-1)开始。
+
+# 目录
+- 关于本书
+- 有关习题和难题
+- 第一章 利用神经网络识别手写数字
+- 第二章 反向传播算法是如何工作的
+- 第三章 提升神经网络学习的效果
+- 第四章 可视化地证明神经网络可以计算任何函数
+- 第五章 为什么深度神经网络难以计算
+- 第六章 深度学习
+- 附录：有没有一个简单的人工智能算法
+- 致谢
+- 常见问题
