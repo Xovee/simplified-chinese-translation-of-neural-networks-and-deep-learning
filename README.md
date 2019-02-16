@@ -1,8 +1,11 @@
 本文是Michael Nielson所著的《Neural Networks and Deep Learning》的简体中文翻译版。
 
 原文：[Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com)
+
 作者：[Michael Nielsen](http://michaelnielsen.org)
+
 译者：[Xovee](https:/www./xovee.cn)
+
 翻译时间：2018年8月
 
 《神经网络与机器学习》是一本免费的在线书籍。这本书的内容包括：
