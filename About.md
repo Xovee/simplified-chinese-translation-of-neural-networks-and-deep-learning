@@ -19,5 +19,6 @@
 
 一本书既专注于理论又专注于实验是很奇怪的，但我相信在构建好神经网络的基础之后你会学的更好。我们会开发出可以运行的代码，而不仅仅是抽象的理论。这样你会更好的在理论层面和实验层面上理解基础，并且在基础之上学习更多的知识。
 
-Next:
+**Next:**
+
 [有关习题和难题](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/On-the-exercises-and-problems.md)
