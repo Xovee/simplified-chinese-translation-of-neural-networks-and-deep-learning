@@ -15,10 +15,10 @@
 
 这意味着你需要一些编程基础去阅读本书。我使用了Python (2.7 版本)来编写代码，就算你不懂编程，在付出一小点努力的情况下，应该也可以理解接下来要讲的内容。在本书的课程里，我们会开发一个小规模的神经网络库，来帮助你去实验和理解。所有的[代码](https://github.com/mnielsen/neural-networks-and-deep-learning)可以在这里下载。当你阅读完本书之后，你应该可以没有困难的去使用其他拥有更多功能和特征的基于神经网络的项目。
 
-其他方面，本书包含的数学知识的难度是适中的。每个章节里都会包含数学知识，但它们大多数都只是一些基础的代数和函数等，我相信大多数的读者应该都可以理解它们。我偶尔会使用一些更高深的数学知识，但也提供了一些资料以供你更深入的学习。使用数学知识比较多的章节是[第二章](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-2.md)，包括一些多变量的微积分和线性代数知识。如果你对这些知识并不熟悉，我在[第二章](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-2.md)的开头提供了一些资料来帮助你去理解。如果你发现这些知识确实很难理解，你也可以简单的跳过它们，直接阅读第二章的内容总结。但在大多数情况下，你并不需要去担心这些东西。
+其他方面，本书包含的数学知识的难度是适中的。每个章节里都会包含数学知识，但它们大多数都只是一些基础的代数和函数等，我相信大多数的读者应该都可以理解它们。我偶尔会使用一些更高深的数学知识，但也提供了一些资料以供你更深入的学习。使用数学知识比较多的章节是[第二章](Chapter-2.md)，包括一些多变量的微积分和线性代数知识。如果你对这些知识并不熟悉，我在[第二章](Chapter-2.md)的开头提供了一些资料来帮助你去理解。如果你发现这些知识确实很难理解，你也可以简单的跳过它们，直接阅读第二章的内容总结。但在大多数情况下，你并不需要去担心这些东西。
 
 一本书既专注于理论又专注于实验是很奇怪的，但我相信在构建好神经网络的基础之后你会学的更好。我们会开发出可以运行的代码，而不仅仅是抽象的理论。这样你会更好的在理论层面和实验层面上理解基础，并且在基础之上学习更多的知识。
 
 **Next:**
 
-[有关习题和难题](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/On-the-exercises-and-problems.md)
+[有关习题和难题](On-the-exercises-and-problems.md)
