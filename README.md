@@ -16,14 +16,14 @@
 点击[这里](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/About.md)获取有关本书的更多细节。你也可以直接从[第一章](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-1)开始。
 
 # 目录
-- 关于本书
-- 有关习题和难题
-- 第一章 利用神经网络识别手写数字
-- 第二章 反向传播算法是如何工作的
-- 第三章 提升神经网络学习的效果
-- 第四章 可视化地证明神经网络可以计算任何函数
-- 第五章 为什么深度神经网络难以计算
-- 第六章 深度学习
-- 附录：有没有一个简单的人工智能算法
-- 致谢
-- 常见问题
+- [关于本书](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/About.md)
+- [有关习题和难题](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/On-the-exercises-and-problems.md)
+- [第一章 利用神经网络识别手写数字](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-1.md)
+- [第二章 反向传播算法是如何工作的](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-2.md)
+- [第三章 提升神经网络学习的效果](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-3.md)
+- [第四章 可视化地证明神经网络可以计算任何函数](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-4.md)
+- [第五章 为什么深度神经网络难以计算](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-5.md)
+- [第六章 深度学习](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-6.md)
+- [附录：有没有一个简单的人工智能算法](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Appendix.md)
+- [致谢](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Acknowledgements.md)
+- [常见问题](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Frequently-asked-questions.md)
