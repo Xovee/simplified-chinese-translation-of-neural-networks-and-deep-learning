@@ -1,4 +1,6 @@
-本文是Michael Nielson所著的《Neural Networks and Deep Learning》的简体中文翻译版。
+本文是Michael Nielson所著的《Neural Networks and Deep Learning》的简体中文翻译版，存于GitHub以作备份。
+
+由于GitHub在线版的Markdown**不支持公式显示**，烦请诸君克隆本仓库到本地，使用诸如Typora或MarkdownPad等支持公式显示的软件阅读，或者到CSDN社区阅读[在线版](https://blog.csdn.net/xovee/article/details/81384670)。
 
 原文：[Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com)
 
@@ -16,14 +18,14 @@
 点击[这里](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/About.md)获取有关本书的更多细节。你也可以直接从[第一章](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-1)开始。
 
 # 目录
-- [关于本书](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/About.md)
-- [有关习题和难题](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/On-the-exercises-and-problems.md)
-- [第一章 利用神经网络识别手写数字](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-1.md)
-- [第二章 反向传播算法是如何工作的](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-2.md)
-- [第三章 提升神经网络学习的效果](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-3.md)
-- [第四章 可视化地证明神经网络可以计算任何函数](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-4.md)
-- [第五章 为什么深度神经网络难以计算](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-5.md)
-- [第六章 深度学习](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-6.md)
-- [附录：有没有一个简单的人工智能算法](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Appendix.md)
-- [致谢](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Acknowledgements.md)
-- [常见问题](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Frequently-asked-questions.md)
+- [关于本书](About.md)
+- [有关习题和难题](On-the-exercises-and-problems.md)
+- [第一章 利用神经网络识别手写数字](Chapter-1.md)
+- [第二章 反向传播算法是如何工作的](Chapter-2.md)
+- [第三章 提升神经网络学习的效果](Chapter-3.md)
+- [第四章 可视化地证明神经网络可以计算任何函数](Chapter-4.md)
+- [第五章 为什么深度神经网络难以计算](Chapter-5.md)
+- [第六章 深度学习](Chapter-6.md)
+- [附录：有没有一个简单的人工智能算法](Appendix.md)
+- [致谢](Acknowledgements.md)
+- [常见问题](Frequently-asked-questions.md)
