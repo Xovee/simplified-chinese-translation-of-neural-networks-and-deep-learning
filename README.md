@@ -13,4 +13,4 @@
 - 深度学习，一种在神经网络中非常强大的技术
 
 神经网络和深度学习最近在许多领域都取得了非常不错的成绩，例如在图像识别、语音识别，以及自然语言处理等。这本书将会教给你许多神经网络和深度学习之中的核心概念。
-点击[这里](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/About.md)获取有关本书的更多细节。你也可以直接从第一章开始。
+点击[这里](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/About.md)获取有关本书的更多细节。你也可以直接从[第一章](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-1)开始。
