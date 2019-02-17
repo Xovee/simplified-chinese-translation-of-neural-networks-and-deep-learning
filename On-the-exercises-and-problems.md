@@ -14,4 +14,4 @@
 
 **Next:**
 
-[第一章 利用神经网络来识别手写数字](https://github.com/Xovee/simplified-chinese-translation-of-neural-networks-and-deep-learning/blob/master/Chapter-1.md)
+[第一章 利用神经网络来识别手写数字](chapter-1.md)

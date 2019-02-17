@@ -439,4 +439,4 @@ $$
 ***
 **Next:**
 
-**[第三章 提升神经网络学习的效果](https://blog.csdn.net/xovee/article/details/85378694)**
+**[第三章 提升神经网络学习的效果](chapter-3.md)**

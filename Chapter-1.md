@@ -864,4 +864,4 @@ $$
 
 **Next:
 
-[第二章 反向传播算法是如何工作的](https://blog.csdn.net/xovee/article/details/85267627)**
+[第二章 反向传播算法是如何工作的](chapter-2.md)**
