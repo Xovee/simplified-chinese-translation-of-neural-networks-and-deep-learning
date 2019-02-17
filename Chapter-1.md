@@ -3,14 +3,14 @@
 人类的视觉系统是这个世界上最奇妙的事物之一。
 请考虑下面这一串手写数字：
 
-![handwritten digis](pics/digits.png)
+![handwritten digis](pics/chapter-1/digits.png)
 
 大多数人都会毫无压力的识别出这串数字是504192。这种轻松其实是带有欺骗性的。在我们大脑的每个半面，人类都有一个主要的视觉皮质层，叫做V1，其中包含了一亿四千万个神经元，以及它们之间数量高达百亿之多的连接。并且人类视觉不仅仅与V1有关，还包括一整组视觉皮质层：V2，V3，V4和V5等等，由此人类可以处理更为复杂的图像信息。我们可以把我们的大脑当作一个超级计算机，经过了成千上万年的不断进化与调整，从视觉层面来适应这个世界。识别手写数字其实并不简单。人类拥有强大与神奇的能力来使出现在我们眼里的事物变得有意义。但这样的工作大部分都是在无意识的情况下处理的，所以实际上我们并没有察觉到这是多么难的一项工作。
 
 所以，“视觉模型识别”的难点在于如何去编写这样一个程序。识别数字对我们来说轻松愉快，可是对于计算机却是一个极难的问题。人类识别数字，例如识别9，我们会看到数字9的上面有一个圈，然后在右下方有一个竖直的线。但这样的表述很难体现在一个算法里。当你尝试去设计这样一个算法时，你会陷入到各种各样奇怪的陷阱里。真是令人绝望\~0.0\~嘤嘤嘤~
 神经网络为解决这样的问题带来了新的方法。我们可以利用一大批手写数字，称其为训练样本，
 
-![handwritten digis](pics/mnist_100_digits.png)
+![handwritten digis](pics/chapter-1/mnist_100_digits.png)
 
 然后开发一个系统，这个系统可以在这些样本上进行学习。换句话说，神经网络利用这些数字，自发地归纳出一些规则，来识别手写数字。
 
@@ -29,7 +29,7 @@
 
 那么感知机到底是怎么样工作的呢？感知机可以接受许多个二元输入，例如$x_1,x_2,...$，最后产生一个二元输出：
 
-![perceptron](pics/tikz0.png)
+![perceptron](pics/chapter-1/tikz0.png)
 
 在这里例子里，感知机拥有三个输入，分别为$x_1,x_2,x_3$。一般来说，感知机可以接受更多或更少的输入。Rosenblatt提出了一种简单的计算输出的办法。他引入了权重（weights）这个概念，$w_1,w_2,...$，从输入到输出，这些实数起着非常重要的作用。感知机的输出，$0$或者$1$，是由加权和$\sum _jw_jx_j$是否大于或者小于某个阈值（threshold value）来定义的。权重和阈值这两种实数都是这个感知机的参数。我们可以得出下面这个代数化的表达：
 $$
@@ -38,7 +38,7 @@ output =
     0 & \text{if } \sum _jw_jx_j \leq \text{threshold} \\
     1 & \text{if } \sum_j w_j x_j \gt \text{threshold}
   \end{cases}
-  $$
+$$
 这就是感知机工作的方式！
 
 这是一个基础的数学模型。你可以把感知机当作一个在权衡输入中做决策的设备。下面我会给出一个例子。这并不是一个真实的例子。想象一下，周末快要来了，你听说城市里将举办一个~~奶酪节~~ （什么鬼？）。你挺喜欢奶酪的，所以你开始考虑要不要去参加。你发现有三个因素影响着你是否参加这个奶酪节：
@@ -54,7 +54,7 @@ output =
 
 显然，感知机做决策和人类做决策还是有很大不同~但感知机可以权衡各种情况，最终来做出决定。而且，一个复杂的感知机网络，可以做出更为复杂的决定：
 
-![complicate perceptron](pics/tikz1.png)
+![complicate perceptron](pics/chapter-1/tikz1.png)
 
 在这个网络中，这些感知机的第一列，我们把它叫做感知机的第一层，根据输入以及输入的权重，可以做出三个非常简单的决策。那么感知机的第二层有什么用呢？第二层中的每个感知机，都会根据第一层中每个感知机的输出，以及它们与自身的权重，来做出一个简单的决策。这样，第二层中的感知机可以在一种更加复杂，更为抽象的程度上做出决策。层数越多，做出的决策也复杂。由此可见，一个多层感知机网络可以实现复杂的问题决策。 
 
@@ -72,29 +72,29 @@ $$
 
 我把感知机描述为一种根据事实来做决策的方法。另外一种利用感知机的方法是计算基础的逻辑函数，例如AND，OR和NAND。举例来说，现在我们有一个感知机，它拥有两个权值为-2的输入，以及一个总体bias3。如下图所示：
 
-![perceptron](pics/tikz2.png)
+![perceptron](pics/chapter-1/tikz2.png)
 
 我们发现，如果输入0，0，计算$(-2)*0+(-2)*0+3=3$，输出为1。相似的，输入01和输入10的输出都是1。但是输入11的话，$(-2)*1+(-2)*1+3=-1$，输出为0。现在，我们的感知机拥有了计算与非门（NAND gate）的能力！
 
 与非门的例子告诉我们可以利用感知机来计算简单的逻辑函数。事实上，我们可以用感知机网络来计算任何复杂的逻辑函数。其中的奥秘是，与非门对于计算是非常普遍的，我们可以利用与非门来构建任何的计算。举例来说，我们可以用与非门来构建一个电路，它拥有两个输入，$x_1$和$x_2$。这个电路要求计算按位和（bitwise sum），$x_1 \oplus x_2$，以及进位元，当$x_1$和$x_2$都为1时，结果为1，也就是说，进位元是按位操作$x_1 x_2$：
 
-![circuit](pics/tikz3.png)
+![circuit](pics/chapter-1/tikz3.png)
 
 为了得到一个具有相同功能的感知机，我们把所有的与非门替换为两个输入，每个输入的权重为-2，bias为3。得到的感知机如下图所示。这里有一点需要提醒读者，我稍微的把上图中，底部右侧的与非门向左移动了一些，以便更好的在下图中展示箭头。
 
-![circuit](pics/tikz4.png)
+![circuit](pics/chapter-1/tikz4.png)
 
 这个感知机的一个显著的特点是，最左侧的单个感知机的输出被最下面的感知机连续两次当作输入。在我定义感知机的时候，并没有说这样的双重输入到一个地方是被允许的。但实际上，这并不是个大问题。如果我们禁止这样的行为，解决的办法非常容易，把两个输入合并成一个，然后把连接的权重改为-4（双倍）。经过这样的处理之后，我们的网络会类似于下图这样，所有未标注的权重为-2，所有的biases为3，有一个权重为-4：
 
-![circuit](pics/tikz5.png)
+![circuit](pics/chapter-1/tikz5.png)
 
 直到目前为止，我一直都把输入表示为在左侧的变量。事实上，传统的方法是新增一个输入层来表示输入：
 
-![circuit](pics/tikz6.png)
+![circuit](pics/chapter-1/tikz6.png)
 
 这样的输入感知机，它有输出，但没有输入：
 
-![perceptron](pics/tikz7.png)
+![perceptron](pics/chapter-1/tikz7.png)
 
 是一种比较简洁的表示。它并不意味着一个感知机没有输入。关于这一点，我们可以考虑一个没有输入的感知机，其权重和$\sum_j w_j x_j$永远等于0，如果$b \gt 0$输出为1，$b \lt 0$则输出为0。所以说，这个感知机只会输出一个固定的值，而不是我们期待的类似于$x_1$这样的值。所以我们应该把“输入感知机”简单的当作一个输出我们需要的值的特殊单元，而不是一个真正意义上的感知机。
 
@@ -107,7 +107,7 @@ $$
 
 学习算法听起来非常棒，但我们该如何为神经网络设计一个这样的算法？试想我们拥有一个感知机网络，我们打算用它来解决一些问题。举例来说，假设网络的输入来自于手写数字图片的扫描像素，然后该网络自动的学习去调整它自己的权值和biases，最终的输出能正确的分类该手写数字。试想我们对网络中的权重（或者bias）做一些小的改动，如下图所示（当然这个网络对于识别手写数字来说太过于简单！）：
 
-![neural network](pics/tikz8.png)
+![neural network](pics/chapter-1/tikz8.png)
 
 如果很小的权重变化会导致很小的输出变化是正确的，那么，我们可以利用这个事实去小心翼翼的改变网络的权重和bias，来使它的行为离我们想象的功能更近。举例来说，如果我们输入一个图片数字“8”，而网络错误的把它分类为“9”。我们可以尝试改变权重和biases，来让网络更容易把该图片数字“8”分类为“8”。不断的重复这个过程，改变网络的权重和biases，让网络的输出越来越准确。
 
@@ -117,7 +117,7 @@ $$
 
 让我们用同样的方式来介绍sigmoid神经元：
 
-![sigmoid neuron](pics/tikz9.png)
+![sigmoid neuron](pics/chapter-1/tikz9.png)
 
 就像感知机一样，sigmoid神经元也拥有输入，$x_1, x_2, ...$
 
@@ -138,11 +138,11 @@ $$
 
 $\sigma$ 的代数形式是什么样的？我们怎么样去理解它呢？事实上，$\sigma$ 的具体形式是什么样的并不重要，重要的是它的形状：
 
-![sigmoid function](pics/sigmoid_function_shape1.png)
+![sigmoid function](pics/chapter-1/sigmoid_function_shape1.png)
 
 它的形状就像一个经过光滑处理的阶跃函数：
 
-![step function](pics/step_function.png)
+![step function](pics/chapter-1/step_function.png)
 
 如果 $\sigma$ 事实上是一个阶跃函数，那么sigmoid神经元就是一个感知机，因为它的输出到底是0还是1取决于式子 $w \cdot x + b$ 的值是正数还是负数\*。所以，真正重要的是 $\sigma$ 函数的光滑性，而不是它的具体形式。光滑性表现在，权值和bias的微小改变 $\Delta w_j$ 和 $\Delta b$ 会导致输出微小改变 $\Delta \text{output}$ ，事实上，微积分告诉我们，$\Delta \text{output}$ 可以这样去近似：
 $$
@@ -166,11 +166,11 @@ $$
 
 在下一节中，我会介绍一个可以很好识别手写数字的神经网络。我们预先解释一些在神经网络经常会用到的术语。设想我们有如下一个网络：
 
-![network](pics/tikz10.png)
+![network](pics/chapter-1/tikz10.png)
 
 如前所述，网络中最左边的一层叫做输入层，输入层中的神经元叫做*输入神经元*。最右边的一层叫做输出层，其中的神经元叫做*输出神经元*，在这个例子中，它是一个单一的输出神经元。位于输入层和输出层中间的，叫做*隐藏层*，是因为这些层既不是输入，也不是输出。“隐藏”听起来似乎有一点神秘——我第一次听到这个词的时候，以为它们一定有着非常复杂的结构或者数学形式——其实并不是这样，这个词仅仅代表着“这些层既不是输入，也不是输出”。上图的网络只包含了一层隐藏层，有些网络包含有多层隐藏层。例如，下图的四层神经网络包含两层隐藏层：
 
-![four layers neural network](pics/tikz11.png)
+![four layers neural network](pics/chapter-1/tikz11.png)
 
 因为一些历史原因，多层网络有时候也被称为*多层感知机（multilayer perceptrons)*，或者简称为*MLPs*，尽管网络中的神经元是sigmoid神经元，而不是感知机。我不会在本书中使用MLP这个术语，因为我认为这个术语带有一定的迷惑性，但我得提醒你它的存在。
 
@@ -189,15 +189,15 @@ $$
 
 在定义了神经网络之后，让我们回到手写数字识别的问题上。我们可以把这个问题分为两个子问题。第一，我们把一个包含很多数字的图片，分割为每张图片包含一个数字的一系列分散的独立图片。例如，我们希望把下面的图片
 
-![handwritten digits](pics/digits.png)
+![handwritten digits](pics/chapter-1/digits.png)
 
 分割为六个独立的图片：
 
-![separate handwritten digits](pics/digits_separate.png)
+![separate handwritten digits](pics/chapter-1/digits_separate.png)
 
 人类的眼睛可以很轻松的解决这样的*分割问题*（segmentation problem），但对计算机程序来说还是有一些挑战。一旦数字们被分割开以后，问题就变成了对每个数字进行分类。例如，我们希望我们的程序可以把下面的图片
 
-![five](pics/mnist_first_digit.png)
+![five](pics/chapter-1/mnist_first_digit.png)
 
 识别为5。
 
@@ -205,7 +205,7 @@ $$
 
 为了识别独立的数字，我们将会使用一个三层的神经网络：
 
-![three-layer neural network](pics/tikz12.png)
+![three-layer neural network](pics/chapter-1/tikz12.png)
 
 网络的输出层包含784个神经元，它们会编码输入的像素值。在下节我们将提到，我们的训练数据包含许多分辨率为28x28的手写数字图片，所以输入层包含有 $784 = 28 \times 28$ 个神经元。为了简便考虑，上图中并没有784个神经元。输入的像素是灰度值，0.0代表白色，1.0代表黑色，中间的值代表色调逐渐变暗的灰色。
 
@@ -217,15 +217,15 @@ $$
 
 设想第一种情况，我们使用10个输出神经元。以第一个神经元为例，它的输出决定着这个图片是不是0。其输入的值取决于隐藏层的输出。那么隐藏层起了什么作用呢？我们可以这样理解，假设隐藏层的第一个神经元的作用是去检测有没有如下的图片输入：
 
-![minist figure](pics/mnist_top_left_feature.png)
+![minist figure](pics/chapter-1/mnist_top_left_feature.png)
 
 我们可以这样做，我们把输入层到隐藏层第一个神经元之间的784个权值进行有选择的赋值，与图中像素重叠的，我们设置高的权值，其他无关的，我们设置低的权值。类似的，我们假设隐藏层中其他的神经元，例如第二个、第三个、第四个神经元分别检测有无如下几个图片这样的输入：
 
-![mnist digits](pics/mnist_other_features.png)
+![mnist digits](pics/chapter-1/mnist_other_features.png)
 
 把这四个图片组合起来会得到什么呢？
 
-![在这里插入图片描述](pics/mnist_complete_zero.png)
+![在这里插入图片描述](pics/chapter-1/mnist_complete_zero.png)
 
 所以说，如果这四个隐藏层的神经元同时启动，我们可以总结：这个输入的图片中的数字，就是0。我们得到0可以有很多种方法，并不局限于这一种。但是我们可以说，至少在这个例子里，我们认为输入的图片里的数字是0。
 
@@ -236,13 +236,13 @@ $$
 
 - 我们可以给这个三层网络额外添加一层，来实现对数字的按位表示。这个额外层把上一层的输出转换为二元表示，如下图所示。为这个新的输出层找到一组权值和biases。假设前三层的神经元可以正确的分类数字，即假如输入的图片中的数字是2，则网络中第三层的第二个神经元有99%的概率激活，而不正确输出的概率小于1%。
 
-![four-layer neural network](pics/tikz13.png)
+![four-layer neural network](pics/chapter-1/tikz13.png)
 
 ## 用梯度下降来学习
 
 设计好神经网络之后，我们该如何利用它去识别数字呢？我们首先需要一个数据集，也就是训练集（training data set)。在本例中我们使用的是[MNIST数据集](http://yann.lecun.com/exdb/mnist/)，里面包含有上万个经过扫描得到的手写数字图片，每张图片都有一个配套的标签（label）来指明图片中的数字。MNIST数据集是在[NIST](http://en.wikipedia.org/wiki/National_Institute_of_Standards_and_Technology)（United States' National Institute of Standards and Technology，美国国家标准与技术研究院）采集的两个数据集上经过修改得来的。下面展示的是MNIST数据集中的一些图片：
 
-![mnist digits](pics/digits.png)
+![mnist digits](pics/chapter-1/digits.png)
 
 这个图片和本章开头展示的图片是一样的。当然，在我们测试这个网络的性能的时候，使用的图片是不包含在训练集里的。
 
@@ -266,7 +266,7 @@ $$
 
 让我们设想去最小化一个函数，$C(v)$。它可能是一个拥有很多实值变量的函数，$v = v_1, v_2, \dots$， 需要注意的是，我已经把符号 $w$ 或 $b$ 等等都替换为 $v$，讨论的范围已经不局限于神经网络了。假设这个函数 $C(v)$ 只有两个变量，我们称其为 $v_1, v_2$：
 
-![valley](pics/valley.png)
+![valley](pics/chapter-1/valley.png)
 
 现在我们想找到的是 $C$ 的全局最小。当然，对于上图中的函数的最小值，我们用眼睛就可以很轻松的找到。在这个例子里，我展示的函数也许太简单了。对于一个一般地函数，$C$，拥有很多变量，用眼睛几乎是不可能找到最小值的。
 
@@ -304,7 +304,7 @@ $$
 
 总结：梯度下降算法的核心思想是，重复地计算梯度 $\nabla C$，向着*相反*的方向，顺着山谷的斜坡“滚下去”。就像这样：
 
-![valley with ball](pics/valley_with_ball.png)
+![valley with ball](pics/chapter-1/valley_with_ball.png)
 
 需要注意的是，梯度下降并不是物理运动的再现，在现实生活中，一个斜坡上的球拥有动量（momentum），可以允许它滚向谷底。相反，我们选择 $\Delta v$ 的规则就像告诉它“向下！马上！”。但这依旧是一个挺好的想法去寻找最小值。
 
@@ -805,7 +805,7 @@ def vectorized_result(j):
 
 让我们尝试一个更极端的简单例子：我们检查一个图片到底有多“暗”。例如，一个包含数字2的图片，一般来说比包含数字1的图片更暗，因为前者的图片中有更多的像素是深色的，就像下面的图片所展示的一样：
 
-![digits 2 & 1](pics/mnist_2_and_1.png)
+![digits 2 & 1](pics/chapter-1/mnist_2_and_1.png)
 
 这个想法让我们去计算训练数据中每个数字的平均加和暗度。当获得一个新的图片时，我们计算这个图片有多“暗”，然后根据暗度来猜测图片中的数字是几。这是一个简单的操作，代码也很简单，所以我就不在这里贴出来了，如果你感兴趣的话，可以在这个[Github仓库](https://github.com/mnielsen/neural-networks-and-deep-learning/blob/master/src/mnist_average_darkness.py)里找到代码。不管怎么说，相比较于随机猜测数字，这个想法的准确率有着很大的提升，它可以把10,000张图片成功分类2,225张，也就是说，准确度是22.25%。
 
@@ -817,7 +817,7 @@ def vectorized_result(j):
 
 事实上，可以。到目前为止，一个经过很好调节的神经网络的准确度，在MNIST数据集上，超过了其他所有的模型，包括SVMs。最近（2013）保持的记录是99.79%，由[Li Wan](http://www.cs.nyu.edu/~wanli/)、[Matthew Zeiler](http://www.matthewzeiler.com/)、Sixin Zhang、[Yann LeCun](http://yann.lecun.com/)以及[Rob Fergus](http://cs.nyu.edu/~fergus/pmwiki/pmwiki.php)等人达成。后面我们会介绍他们所利用到的大部分技巧。这个结果可以说，已经达到了人类识别的水平，甚至可以说超过人类。因为在MNIST数据集中，有些图片对于人类来说，也是难以正确分类的，例如：
 
-![hard to recognize](pics/mnist_really_bad_images.png)
+![hard to recognize](pics/chapter-1/mnist_really_bad_images.png)
 
 我相信你会同意这些图片真的很难去分类。而神经网络在10,000张图片中仅仅错误分类了21张，真是让人难以置信。通常来说，在编程的时候，当我们尝试去解决一个复杂的问题，例如识别手写数字，我们相信这需要一个特别复杂的程序才可以做到。但在神经网络中，甚至是Wan等人的论文中，也只是使用了我们刚刚见过的很简单的算法。从训练数据中，所有的复杂性都被自动地学习到了。在某种程度上，我们可以说：
 $$
@@ -832,9 +832,9 @@ $$
 
 回想本章开头所描述的人工神经元，它是一种衡量事实的方法。假如我们想去确认一张图片里面是不是包含人脸：
 
-![Kangaroo](pics/Kangaroo.JPG)
-![Einstein crop](pics/Einstein_crop.jpg)
-![aerospace](pics/hubble.jpg)
+![Kangaroo](pics/chapter-1/Kangaroo.JPG)
+![Einstein crop](pics/chapter-1/Einstein_crop.jpg)
+![aerospace](pics/chapter-1/hubble.jpg)
 
 > 出处：1）[Ester Inbar](http://commons.wikimedia.org/wiki/User:ST) 2）未知 3）NASA，ESA，G. Illingworth，D. Magee以及P. Oesch（加州大学圣克鲁兹分校），R. Bouwens（莱登大学）以及HUDF09团队。点击图片链接查看更多信息：[一](http://neuralnetworksanddeeplearning.com/images/Kangaroo.JPG)、[二](http://neuralnetworksanddeeplearning.com/images/Einstein_crop.jpg)、[三](http://neuralnetworksanddeeplearning.com/images/hubble.jpg)。
 
@@ -846,11 +846,11 @@ $$
 
 当然，这只是一个粗糙的探索，还面临着许多不足。也许图片中的人是秃头，他没有头发。也许我们只能看到半张脸，或者这张脸处于不同的角度，其中的某些特征并不可见。但如果我们能解决这些子问题，并且把子问题结合起来，我们也许就能建立起一个神经网络，从而解决这个人脸识别问题。这里有一个可能的结构，矩形框代表着子网络。需要注意的是，这个方法并不是真的能解决人脸识别问题，它是用来帮助我们了解网络的运作方式。下面是它的结构：
 
-![architecture](pics/tikz14.png)
+![architecture](pics/chapter-1/tikz14.png)
 
 我们发现，这些子问题似乎也可以被分解。设想我们在考虑这个问题：左上角有没有一个眼睛？这个问题可以被分解为更多的问题：那里有没有眉毛？有没有睫毛？有没有虹膜？等等。当然，这些问题都应该包含位置信息，比如：在左上方有没有一个眉毛，并且在虹膜的上方？但我们暂时先把问题简单化。问题“左上方有没有一个眼睛”可以被这样分解：
 
-![decompose](pics/tikz15.png) 
+![decompose](pics/chapter-1/tikz15.png) 
 
 这些子问题还可以被进一步地分解，经过更多更多的层。最终，我们会得到很多子网络，它们可以在像素的层面上回答简单的问题。这些问题也许，举个例子，是去检测图片中的某一个地方存在或者不存在特定的形状。这些问题可以被一个连接到相关像素的单个神经元所回答。
 
