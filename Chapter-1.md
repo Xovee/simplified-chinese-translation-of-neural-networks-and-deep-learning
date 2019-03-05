@@ -68,7 +68,7 @@ output =
     1 & \text{if } w \cdot x + b \gt 0
   \end{cases}
 $$
-你可以把bias理解为，感知机有多容易去输出一个“1”。在更为生物化的角度上，它表示感知机有多容易去启动。对于一个bias非常大的感知机来说，让它输出1是非常困难的。所以，引入bias只是一个小改动，但在后面我们会认识到它在表示上带来的更多好处。基于这个原因，在本书的剩余部分，我们会用bias来取代阈值。
+你可以把bias理解为，感知机有多容易去输出一个“1”。在更为生物化的角度上，它表示感知机有多容易去启动。如果感知机的bias非常大，那么它更有可能去输出1。所以，引入bias只是一个小改动，但在后面我们会认识到它在表示上带来的更多好处。基于这个原因，在本书的剩余部分，我们会用bias来取代阈值。
 
 我把感知机描述为一种根据事实来做决策的方法。另外一种利用感知机的方法是计算基础的逻辑函数，例如AND，OR和NAND。举例来说，现在我们有一个感知机，它拥有两个权值为-2的输入，以及一个总体bias3。如下图所示：
 
@@ -340,9 +340,10 @@ $$
 我们该如何把梯度下降算法应用到神经网络的学习之中呢？首先的想法是利用梯度下降算法来找到权值 $w_k$ 和biases $b_l$ 从而最小化公式(6)中的代价。为了说明其本质，让我们重新阐述梯度下降更新的规则，用权值和biases来代替变量 $v_j$。换句话说，我们的“位置”（position）现在包括两个部分，$w_k, b_l$，而梯度向量 $\nabla C$ 同样也包含两个部分，$\partial C / \partial w_k, \partial C / \partial b_l$。在这两个部分的基础上，我们重新写出梯度下降算法的更新规则：
 $$
 \begin{aligned}
-w_k &\rarr w_k' = w_k - \eta \frac {\partial C}{\partial w_k} \\ \tag{16, 17}
+w_k &\rarr w_k' = w_k - \eta \frac {\partial C}{\partial w_k} \\ 
 b_l &\rarr b_l' = b_l - \eta \frac {\partial C}{\partial b_l} 
 \end{aligned}
+\tag{16, 17}
 $$
 通过不断地执行这个更新规则，我们就可以“滚向谷底”，最终找到代价函数的最小值。我们可以把这个更新规则应用到神经网络的学习之中。
 
@@ -361,12 +362,13 @@ $$
 $$
 这使得我们可以通过计算随机选取的mini-batch的梯度来估计全局梯度。
 
-为了和神经网络建立起联系，我们用 $w_k$ 和 $b_l$ 来表示权值和biases。随机梯度下降算法随机地选取训练输入中的mini-batch，然后根据下面的规则来训练：
+为了和神经网络建立起联系，我们用 $w_k$ 和 $b_l​$ 来表示权值和biases。随机梯度下降算法随机地选取训练输入中的mini-batch，然后根据下面的规则来训练：
 $$
 \begin{aligned}
-w_k \rarr w_k' = w_k &- \frac {\eta}{m} \sum_j \frac {\partial C_{X_j}}{\partial w_k} \\ \tag{20, 21}
+w_k \rarr w_k' = w_k &- \frac {\eta}{m} \sum_j \frac {\partial C_{X_j}}{\partial w_k} \\ 
 b_l \rarr b_l' = b_l &- \frac {\eta}{m} \sum_j \frac {\partial C_{X_j}}{\partial b_l}
 \end{aligned}
+\tag{20, 21}
 $$
 其中的求和是遍历当前mini-batch中的所有训练数据。然后我们选取下一个mini-batch，利用其中的数据再次进行训练。持续这样的操作，直到我们遍历完所有的训练数据，也就是说，完成了一个训练*epoch*。然后我们开始训练下一个epoch。
 
