@@ -147,29 +147,4 @@ net = network2.Network([784, 30, 10])
 
 ![learning speed for 2 layers](D:\Xovee\Personal\translation\simplified-chinese-translation-of-neural-networks-and-deep-learning\pics\chapter-5\6-training-speed-2-layers.png)
 
-为了得到上述结果，我在 $1,000$ 个训练图片上使用梯度下降，训练了 $500$ 个epochs。这与我们之前通常的训练方法有所不同：我没有使用mini-batch，只利用了 $1,000$ 个训练图片，而不是完整的 $50,000$ 个图片训练集。当然，我并不是想去做一些奇怪的事情，这是因为使用基于mini-batch的随机梯度下降会导致非常多的噪声（如果你能把噪声整合的话，结果与上图是相似的）。所以使用这样的实验设置可以帮助我们更好地理解到底发生了什么。
-
-总之，你可以看到，两个隐藏层在开始训练的时候，学习速度有着很大的差异。然后学习速度有了一个很大的下降，之后开始持续地回升。总的来说，第一个隐藏层的学习速度要慢得多。
-
-如果是更复杂的网络呢？下面展示了拥有三个隐藏层的网络的情况，在相似的设置下：
-
-![training speed 3 layers](D:\Xovee\Personal\translation\simplified-chinese-translation-of-neural-networks-and-deep-learning\pics\chapter-5\7-training-speed-3-layers.png)
-
-相似地，前面的隐藏层要比后面的隐藏层学的慢。最后，让我们添加第四个隐藏层：
-
-![training speed 4 layers](D:\Xovee\Personal\translation\simplified-chinese-translation-of-neural-networks-and-deep-learning\pics\chapter-5\8-training-speed-4-layers.png)
-
-结果又一次表明，早先的隐藏层学的更慢。在这个示例中，第一层大约要比第四层慢一百倍以上。显然，我们的网络（尤其是前面的隐藏层）遇到了棘手的训练问题！
-
-我们在这里观测到了一个非常重要的现象：至少对于某些深层神经网络来说，其梯度在隐藏层中进行反向传播时，会变得越来越小。这意味着前面的隐藏层中的神经元会学习地非常慢。这个现象出现在很多神经网络中，即 *梯度消失问题\*（vanishing gradient problem）*。
-
-> *你可以参考 Sepp Hochreiter、Yoshua Bengio、Paolo Frasconi 和 Jürgen Schmidhuber 在2001年撰写的论文 [Gradient flow in recurrent nets: the difficulty of learning long-term dependencies](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.24.7321)。以及 Sepp Hochreiter 在1991年于德国发表的学位论文 [Untersuchungen zu dynamischen neuronalen Netzen](http://www.idsia.ch/~juergen/SeppHochreiter1991ThesisAdvisorSchmidhuber.pdf)。
-
-为什么会发生梯度消失问题呢？有没有什么办法可以避免这个问题？在训练深层神经网络的时候该如何解决它呢？事实上，待会我们会知道，这并不是无法避免的。还有一个与此对立的问题，有时候前面的层的梯度会变得非常的大！这也被称为 *梯度爆炸问题（exploding gradient problem）*。更一般地说，在深层神经网络中，梯度表现的非常 *不稳定*，有时候会爆炸，而有时候又会消失。对于深层神经网络来说，这种不稳定性是一个非常重要的问题。我们需要去理解这个问题，并且尝试去解决它。
-
-关于梯度消失或者梯度不稳定，还有另外一种说法：它们真的是有害的吗？先把神经网络放在一边，设想我们试着去最小化一个单变量的函数 $f(x)$。如果它的导数 $f'(x)$ 很小的话，这不应该是一个好消息吗？这不是意味着，我们已经接近了一个极值？所以说，神经网络中前面的层拥有比较小的梯度，是不是说明那些权值和biases已经不需要进行调整了？
-
-当然，情况不是这样。网络中的权值和biases是随机进行初始化的。它们几乎不可能在一开始就调整为合适的值。具体来说，设想在 MNIST 问题中结构为 $[784, 30, 30, 30, 10]$ 的一个网络，对第一个隐藏层中的权值进行随机初始化意味着该层几乎把输入图片中所有的信息都丢弃了。就算后面的层的训练速度很快，它们在辨识输入图片时会非常地困难，因为它们几乎没有得到任何有用的信息。所以说，第一个隐藏层不需要进行学习的说法是不正确的。如果我们想要训练一个深层网络，我们需要知道如何去解决梯度消失问题。
-
-## 是什么导致了梯度消失问题？神经网络中不稳定的梯度
-
+为了得到上述结果，我在 $1,000$ 个训练图片上使用梯度下降，训练了 $500$ 个epochs。这与我们之前通常的训练方法有所不同：我没有使用mini-batch，只利用了 $1,000$ 个训练图片，而不是完整的 $50,000$ 个图片训练集。当然，我并不是想去做一些奇怪的事情，而是因为使用基于mini-batch的随机梯度下降会导致非常多的噪声
