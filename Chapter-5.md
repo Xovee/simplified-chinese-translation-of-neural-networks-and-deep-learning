@@ -173,3 +173,76 @@ net = network2.Network([784, 30, 10])
 
 ## 是什么导致了梯度消失问题？神经网络中不稳定的梯度
 
+为了深入理解消失问题的原理，让我们来考虑一个最简单的深层神经网络：每一层中只有一个神经元。下面是一个拥有三个隐藏层的网络：
+
+![single neuron network](./pics/chapter-5/9-tikz37.png)
+
+其中，$w_1, w_2, \dots$ 是权值，$b_1, b_2, \dots$ 是 biases， $C$ 是某个代价函数，第 $j$ 个神经元的输出 $a_j$ 是 $\sigma(z_j)$，其中 $\sigma$ 是经常使用的 sigmoid 激活函数，$z_j = w_j a_{j-1} + b_j$ 是神经元的加权输入。我在图中的末尾画出了代价 $C$，是为了强调网络中的代价是网络输出 $a_4$ 的一个函数：如果网络的实际输出接近于期望值，那么代价将会变得很小，反之亦然。
+
+我们现在来看看第一个隐藏神经元的梯度 $\partial C / \partial b_1$。在计算出 $\partial C / \partial b_1$ 的表达式之后，我们将会理解为什么会发生梯度消失问题。
+
+$\partial C / \partial b_1$ 的表达式看起来非常复杂，但其实它有一个很简单的结构，我待会会详细解释它。下面是具体的表达式（先暂时忽略网络，表达式中的 $\sigma'$ 仅仅是 $\sigma$ 函数的导数）：
+
+![expression](./pics/chapter-5/10-tikz38.png)
+
+表达式的结构是这样的：在网络中每一个神经元的乘积中，都有一个 $\sigma'(z_j)$ 项；网络中每一个权值都有一个 $w_j$ 项；以及最后的 $\partial C / \partial a_4$ 项，它对应于最终的代价函数。我把公式中的每一项都放在了图中对应组件的上方，这样也许可以帮助你更好地理解。
+
+你可以忽略下面对表达式的解释，跳到下一节去阅读。这样做并没有什么问题，因为这个例子是我们之前讨论过的反向传播算法的一个特殊例子。当然，这是一个非常简单的对于这个表达式为什么是正确的的解释，所以看看下面这个解释其实是很有趣的（也许可以带给你一些启发）。
+
+设想我们对 bias $b_1$ 做了一个微小的调整 $\Delta b_1$。这会导致网络中产生一系列的级联反应。第一，它使网络中第一个隐藏神经元的输出发生了大小为 $\Delta a_1$ 的改变，这使得第二个隐藏神经元的加权输入发生了大小为 $\Delta z_2$ 的改变。然后第二个隐藏神经元的输出也发生了大小为 $\Delta a_2$ 的改变。如此反复，一直影响到网络最终的代价发生大小为 $\Delta C$ 的改变。我们有
+$$
+\frac {\partial C}{\partial b_1} \approx \frac {\Delta C}{\Delta b_1}.
+\tag{114}
+$$
+这告诉我们，在小心地跟踪级联中的每一步的影响之后，我们可以计算出梯度 $\partial C / \partial b_1$。
+
+为了做到这一点，让我们思考 $\Delta b_1$ 是如何影响了第一个隐藏神经元的输出 $a_1$。因为 $a_1 = \sigma(z_1) = \sigma(w_1 a_0 + b_1)$，所以
+$$
+\begin{aligned}
+\Delta a_1 &\approx \frac {\partial \sigma(w_1 a_0 + b_1)}{\partial b_1} \Delta b_1 \\
+&= \sigma' (z_1) \Delta b_1.
+\end{aligned}
+\tag{115, 116}
+$$
+其中 $\sigma`(z_1)$ 项应该看起来非常熟悉：它是我们梯度 $\partial C / \partial b_1$ 表达式中的第一项。直观地说，这一项把 bias 的改变 $\Delta b_1$ 转移到输出激活的改变 $\Delta a_1$。而输出激活的改变 $\Delta a_1$ 相应地对第二个隐藏神经元的加权输入 $z_2 = w_2 a_1 + b_2$ 造成了大小如下的改变：
+$$
+\begin{aligned}
+\Delta z_2 &\approx \frac {\partial z_2}{\partial a_1} \Delta a_1 \\
+&= w_2 \Delta a_1.
+\end{aligned}
+\tag {117, 118}
+$$
+把 $\Delta z_2$ 和 $\Delta a_1$ 的表达式结合起来，我们可以看到 bias $b_1$ 的改变是如何在网络中传播并对 $z_2$ 产生了影响：
+$$
+\Delta z_2 \approx \sigma'(z_1) w_2 \Delta b_1.
+\tag{119}
+$$
+这应该看起来依旧很熟悉：我们现在获得了梯度 $\partial C / \partial b_1​$ 表达式中前两项。
+
+我们可以继续这个过程，跟踪网络中其余部分的变化。对于每一个神经元，我们选择 $\sigma'(z_j)$ 项，对于每一个权值，我们选择 $w_j$ 项。最后我们得到在 bias 发生一个大小为 $\Delta b_1$ 的改变后，对最终的代价发生的改变值 $\Delta C$ 的表达式：
+$$
+\Delta C \approx \sigma'(z_1) w_2 \sigma'(z_2) \dots \sigma'(z_4) \frac {\partial C}{\partial a_4} \Delta b_1. \tag{120}
+$$
+在除以 $\Delta b_1$ 之后，我们得到了期望的对于梯度的表达式：
+$$
+\frac {\partial C}{\partial b_1} = \sigma'(z_1) w_2 \sigma'(z_2) \dots \sigma'(z_4) \frac {\partial C}{\partial a_4}. \tag{121}
+$$
+**为什么会发生梯度消失问题**：为了理解为什么会发生梯度消失问题，我们先写出梯度完整的表达式：
+$$
+\frac {\partial C}{\partial b_1} = \sigma'(z_1) w_2 \sigma'(z_2) w_3 \sigma'(z_3) w_4 \sigma'(z_4) \frac {\partial C}{\partial a_4}. \tag{122}
+$$
+除了最后一项，这个表达式是 $w_j \sigma'(z_j)$ 项的乘积。为了理解每一项的行为，让我们看一看函数 $\sigma'$ 是如何变化的：
+
+![sigma function](./pics/chapter-5/11-sigma.png)
+
+导数在 $\sigma'(0) = 1 / 4$ 处达到了最大值。现在，我们使用我们标准的方法去初始化网络的权值，即均值为0，标准差为1的高斯分布。所以权值将一直满足 $|w_j| < 1$。我们观察到，$w_j \sigma'(z_j)$ 将一直满足 $|w_j \sigma'(z_j)| < 1 / 4$。如果我们对这样的项进行多次相乘之后，结果将会越来越小。这似乎是梯度消失问题的一种可能的解释。
+
+让我们说的更清楚一点，比较表达式 $\partial C / \partial b_1$ 和之后的某一个梯度对 bias 的表达式，例如 $\partial C / \partial b_3$。当然，我们还没有算出 $\partial C / \partial b_3$ 的表达式，但这个过程和 $\partial C / \partial b_1$ 没什么两样。下面是两个表达式的比较：
+
+![comparison between two expressions](./pics/chapter-5/12-tikz39.png)
+
+这两个表达式有很多相似之处。但是梯度 $\partial C / \partial b_1$ 包含两个额外的项，形式为 $w_j \sigma'(z_j)$。如我们所看到的，这些项的大小都比 $1 / 4$ 要小。所以相应的梯度 $\partial C / \partial b_1$ 将会一直比 $\partial C / \partial b_3$ 小十六分之一以上。这便是梯度消失问题的本质所在。
+
+当然，这是一个不正式的论证，并不是梯度消失问题的一个严谨的证明。这里还有很多其他的问题。特别是，在训练的过程中，梯度 $w_j$ 也可能越来越大。如果是这样的话，那么 $w_j \sigma'(z_j)$ 项也可能不再满足 $|w_j \sigma'(z_j)| < 1 / 4$。确实，如果这些项足够大的话（比1大），那么我们就不会遇到梯度消失问题了。相反，梯度在反向传播的过程中，会指数级地不断增长。所以，虽然没有了梯度消失问题，但梯度爆炸的问题出现了。
+
+**梯度爆炸问题**：
