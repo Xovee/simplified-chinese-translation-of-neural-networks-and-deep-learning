@@ -193,7 +193,7 @@ $$
 $$
 \delta_j^L = \sum_k \frac {\partial C}{\partial a_k^L} \frac {\partial a_k^L}{\partial a_j^L}, \tag{37}
 $$
-其中求和 $\sum_k$ 遍历了所有的输出层神经元 $k$。当然，对于第 $k$ 个神经元，其输出激活 $a_k^L$ 只依赖于当 $k = j$ 时的第 $j$ 个神经元的加权输入 $z_j^L$。当 $k \ne j$ 时，$\partial a_k^L / \partial z_j^L$ 将会消失。作为结果，我们可以简化前述的公式
+其中求和 $\sum_k​$ 遍历了所有的输出层神经元 $k​$。当然，对于第 $k​$ 个神经元，其输出激活 $a_k^L​$ 只依赖于当 $k = j​$ 时的第 $j​$ 个神经元的加权输入 $z_j^L​$。当 $k \ne j​$ 时，$\partial a_k^L / \partial z_j^L​$ 将会消失。作为结果，我们可以简化前述的公式
 $$
 \delta_j^L = \frac {\partial C}{\partial a_j^L} \frac {\partial a_j^L}{\partial z_j^L}. \tag{38}
 $$
