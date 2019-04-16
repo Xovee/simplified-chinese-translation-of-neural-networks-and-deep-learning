@@ -1,4 +1,4 @@
-本文是Michael Nielson所著的《Neural Networks and Deep Learning》的简体中文翻译版，存于GitHub以作备份。
+本文是Michael Nielson所著的《Neural Networks and Deep Learning》的简体中文翻译版。
 
 由于GitHub在线版的Markdown**不支持公式显示**，烦请诸君克隆本仓库到本地，使用诸如[Typora](https://typora.io/)或[MarkdownPad](http://markdownpad.com/)等支持公式显示的软件阅读，或者到CSDN社区阅读[在线版](https://blog.csdn.net/xovee/article/details/81384670)。
 
