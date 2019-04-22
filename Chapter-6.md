@@ -1096,4 +1096,3 @@ DBNs 第二个有趣的点在于，它可以做无监督学习（unsupervised le
 
 **Next:**
 [附录：有没有一个简单的人工智能算法？](./Appendix.md)
-
