@@ -22,11 +22,11 @@
 
 在之前的章节里，我们设计的神经网络可以在手写数字识别问题上得到一个不错的结果了：
 
-![digits](D:\Xovee\Personal\translation\simplified-chinese-translation-of-neural-networks-and-deep-learning\pics\chapter-6\1-digits.png)
+![digits](.\pics\chapter-6\1-digits.png)
 
 我们所使用的网络，其相邻层之间是全部连接的。这就是说，网路中每一个神经元都与其相邻层的每一个神经元相互连接：
 
-![fully connected layers](D:\Xovee\Personal\translation\simplified-chinese-translation-of-neural-networks-and-deep-learning\pics\chapter-6\3-tikz41.png)
+![fully connected layers](.\pics\chapter-6\3-tikz41.png)
 
 对于输入图片中的每一个像素，我们把其像素亮度看做是相应输入层神经元的输入值。对于一个大小为 $28 \times 28$ 像素的图片，这意味着我们的网络拥有 $784(=28\times 28)$ 个输入神经元。我们然后训练这个网络的权值和 biases，最后网络可以对每个输入图片，输出其所代表的数字：从零到九。
 
