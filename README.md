@@ -15,10 +15,12 @@
 - 深度学习，一种在神经网络中非常强大的技术
 
 神经网络和深度学习最近在许多领域都取得了非常不错的成绩，例如在图像识别、语音识别，以及自然语言处理等。这本书将会教给你许多神经网络和深度学习之中的核心概念。
-点击[这里](./About.md)获取有关本书的更多细节。你也可以直接从[第一章](./Chapter-1.md)开始。
+
+[点击这里](./About.md)获取有关本书的更多细节，[点击这里](./Translator-Forewords.md)查看译者的话。你也可以直接从[第一章](./Chapter-1.md)开始。
 
 # 目录
 - [关于本书](About.md)
+- [译序](./Translator-Forewords.md)
 - [有关习题和难题](On-the-exercises-and-problems.md)
 - [第一章 利用神经网络识别手写数字](Chapter-1.md)
 - [第二章 反向传播算法是如何工作的](Chapter-2.md)
@@ -27,7 +29,6 @@
 - [第五章 为什么深度神经网络难以计算](Chapter-5.md)
 - [第六章 深度学习](Chapter-6.md)
 - [附录：有没有一个简单的人工智能算法](Appendix.md)
-- [致谢](Acknowledgements.md)
-- [常见问题](Frequently-asked-questions.md)
+- [致谢、常见问题](Acknowledgements-Frequently-asked-questions.md)
 
 ![introduction](./pics/introduction.png)
