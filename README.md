@@ -19,8 +19,8 @@
 [点击这里](./About.md)获取有关本书的更多细节，[点击这里](./Translator-Forewords.md)查看译者的话。你也可以直接从[第一章](./Chapter-1.md)开始。
 
 # 目录
-- [关于本书](About.md)
 - [译序](./Translator-Forewords.md)
+- [关于本书](About.md)
 - [有关习题和难题](On-the-exercises-and-problems.md)
 - [第一章 利用神经网络识别手写数字](Chapter-1.md)
 - [第二章 反向传播算法是如何工作的](Chapter-2.md)
