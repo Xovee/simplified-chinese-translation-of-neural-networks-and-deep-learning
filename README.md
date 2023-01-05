@@ -6,7 +6,7 @@
 
 作者：[Michael Nielsen](http://michaelnielsen.org)
 
-译者：[Xovee](https:/www./xovee.cn)
+译者：[Xovee](https://www.xoveexu.com)
 
 翻译时间：2018年8月
 
